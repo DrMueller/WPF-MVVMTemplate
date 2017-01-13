@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProductVersion>8.0.30703</ProductVersion>
+		<SchemaVersion>2.0</SchemaVersion>
+		<ProjectGuid>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<OutputType>WinExe</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>$safeprojectname$</RootNamespace>
+		<AssemblyName>$safeprojectname$</AssemblyName>
+		<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
+		<FileAlignment>512</FileAlignment>
+    <StartupObject>$safeprojectname$.AppStart.App</StartupObject>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug\</OutputPath>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+    <StartupObject>$safeprojectname$.AppStart.App</StartupObject>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+ 		<Optimize>true</Optimize>
+		<OutputPath>bin\Release\</OutputPath>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+    <StartupObject>$safeprojectname$.AppStart.App</StartupObject>
+	</PropertyGroup>
+	<ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity" />
+    <Reference Include="Microsoft.Practices.Unity.Configuration" />
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention" />
+    <Reference Include="PropertyChanged" />
+    <Reference Include="NLog" />
+    <Reference Include="MaterialDesignColors" />
+    <Reference Include="MaterialDesignThemes.Wpf" />
+
+    <Reference Include="System"/>
+    <Reference Include="System.Core"/>
+    <Reference Include="System.Xml.Linq"/>
+    <Reference Include="System.Data.DataSetExtensions"/>
+    <Reference Include="Microsoft.CSharp"/>
+    <Reference Include="System.Data"/>
+    <Reference Include="System.Xml"/>
+
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  
+	<ItemGroup>
+    <!--No Folder START-->
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <!--No Folder Ënd-->
+
+    
+    <!--AppStart START-->
+    <ApplicationDefinition Include="AppStart\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    
+    <Compile Include="AppStart\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="AppStart\Bootstrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="AppStart\ViewModelMappingInitializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="AppStart\ViewModelRegistering.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--AppStart END-->
+    
+    
+    <!--Commands START-->
+    <Compile Include="Commands\RelayCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Commands\ParametredRelayCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--Commands END-->
+    
+    <!--Infrastructure Start-->
+    <!--Converters START-->
+    <Compile Include="Infrastructure\Converters\AppearanceThemeDarkToBooleanConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Infrastructure\Converters\AppearanceThemeLightToBooleanConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--Converters END-->
+    
+    <!--Dictionaries START-->
+    <None Include="Infrastructure\Dictionaries\_Conventions.txt" />
+
+    <Page Include="Infrastructure\Dictionaries\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+
+    <Page Include="Infrastructure\Dictionaries\ControlTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+
+    <Page Include="Infrastructure\Dictionaries\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+
+    <Page Include="Infrastructure\Dictionaries\CoreStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+
+    <Page Include="Infrastructure\Dictionaries\DataTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+
+    <Page Include="Infrastructure\Dictionaries\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+
+    <Page Include="Infrastructure\Dictionaries\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+
+    <Page Include="Infrastructure\Dictionaries\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <!--Dictionaries END-->
+
+    <!--Extensions START-->
+    <Compile Include="Infrastructure\Extensions\DeepCopyHelper\DeepCopyArrayExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="Infrastructure\Extensions\DeepCopyHelper\DeepCopyArrayTraverse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Infrastructure\Extensions\DeepCopyHelper\DeepCopyHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Infrastructure\Extensions\DeepCopyHelper\DeepCopyReferenceEqualityComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="Infrastructure\Extensions\EnumerableExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Infrastructure\Extensions\ObjectExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--Extensions END-->
+    
+    <!--Helpers START-->
+    <Compile Include="Infrastructure\Helpers\RegistryHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--Helpers END-->
+    
+    <!--Singletons START-->
+    <Compile Include="Infrastructure\Singletons\UnityContainerInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--Singletons END-->
+
+    <!--XamlFunctionalities START-->
+    <Compile Include="Infrastructure\XamlFunctionalities\DynamicGridSizeBinding.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="Infrastructure\XamlFunctionalities\EventCommandBinding.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Infrastructure\XamlFunctionalities\MouseMoveCommandBinding.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--XamlFunctionalities END-->
+    
+    <!--Infrastructure END-->
+    
+    
+   <!--Models Start-->
+    <Compile Include="Models\Shell\IClosable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="Models\Shell\ViewModelParameter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Models\Shell\ViewModelParameterCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Models\Shell\Enumerations\AppearanceTheme.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Models\Shell\Enumerations\InformationType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--Models END-->
+    
+    
+    <!--Handlers Start-->
+    <Compile Include="Handlers\AppearanceHandling\IAppearanceHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+      <Compile Include="Handlers\AppearanceHandling\Implementation\AppearanceHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Handlers\ExceptionHandling\IExceptionHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Handlers\ExceptionHandling\IExceptionHandlerConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+      <Compile Include="Handlers\ExceptionHandling\IExceptionLogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Handlers\ExceptionHandling\Implementation\ExceptionHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="Handlers\ExceptionHandling\Implementation\ExceptionHandlerConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+      
+    <Compile Include="Handlers\ExceptionHandling\Implementation\ExceptionLogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    
+    <Compile Include="Handlers\InformationHandling\IInformationHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Handlers\InformationHandling\IInformationHandlerConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Handlers\InformationHandling\Implementation\InformationHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="Handlers\InformationHandling\Implementation\InformationHandlerConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Handlers\NavigationHandling\INavigationHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+      
+    <Compile Include="Handlers\NavigationHandling\INavigationHandlerConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Handlers\NavigationHandling\Implementation\NavigationHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="Handlers\NavigationHandling\Implementation\NavigationHandlerConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--Handlers END-->
+    
+    
+    <!--UserControls Start-->
+    <Page Include="UserControls\InformationBarControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+      
+    <Compile Include="UserControls\InformationBarControl.xaml.cs">
+      <DependentUpon>InformationBarControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <!--UserControls END-->
+    
+    
+    <!--ViewModels Start-->
+    <!--MainNavigation Start-->
+    <Compile Include="ViewModels\Shell\MainNavigation\IAmMainNavigationViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="ViewModels\Shell\MainNavigation\Initialization\IMainNavigationInitializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    
+    <Compile Include="ViewModels\Shell\MainNavigation\Initialization\Implementation\MainNavigationInitializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--MainNavigation End-->
+    
+    <Compile Include="ViewModels\Shell\ViewModelBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="ViewModels\Shell\ViewModelCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="ViewModels\Shell\ViewModelContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="ViewModels\Shell\ViewModelFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <!--ViewModels END-->
+    
+    
+    <!--Views START-->
+    <Page Include="Views\Shell\ViewContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+
+    <Compile Include="Views\Shell\ViewContainer.xaml.cs">
+      <DependentUpon>ViewContainer.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <!--Views END-->
+	</ItemGroup>
+  
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+ </Project>

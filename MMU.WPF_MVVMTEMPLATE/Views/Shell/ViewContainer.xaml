@@ -1,0 +1,64 @@
+﻿<Window x:Class="$safeprojectname$.Views.Shell.ViewContainer"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:uc="clr-namespace:$safeprojectname$.UserControls"
+            xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+            xmlns:xf="clr-namespace:$safeprojectname$.Infrastructure.XamlFunctionalities"
+            mc:Ignorable="d"
+            d:DesignHeight="600"
+            d:DesignWidth="600"
+            x:Name="ViewContainerWindow"
+            Style="{StaticResource ContainerWindow}"
+            WindowStartupLocation="CenterScreen">
+
+    <Window.InputBindings>
+        <KeyBinding 
+            Command="{Binding Path=CloseCommand, Mode=OneTime}" 
+            CommandParameter="{Binding ElementName=ViewContainerWindow}" 
+            Key="Esc"/>
+    </Window.InputBindings>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid VerticalAlignment="Center" Grid.Row="0" Margin="0,0,0,10">
+            <uc:InformationBarControl 
+                InformationText="{Binding InformationText, Mode=OneWay}"
+                SelectedInformationType="{Binding SelectedInformationType, Mode=OneWay}" />
+        </Grid>
+
+        <DockPanel Grid.Row="1" LastChildFill="True">
+            <ContentPresenter
+                    DockPanel.Dock="Top"
+                    Content="{Binding ., Mode=OneWay}"
+                    ContentTemplate="{StaticResource MainHeader}" />
+
+            <md:DrawerHost IsLeftDrawerOpen="{Binding IsMainNavigationPaneOpen, Mode=TwoWay}" Margin="0,10,0,0">
+                <md:DrawerHost.LeftDrawerContent>
+                    <ListBox
+                        xf:EventCommandBinding.EventName="MouseLeftButtonUp"
+                        xf:EventCommandBinding.Command="{Binding CloseMainNavigationPane, Mode=OneWay}"
+                        ItemContainerStyle="{StaticResource MainNavigationContainerStyle}"
+                        ItemTemplate="{StaticResource MainNavigation}"
+                        ItemsSource="{Binding MainNavigationEntries, Mode=OneWay}" />
+                </md:DrawerHost.LeftDrawerContent>
+
+                <ContentPresenter Content="{Binding CurrentContent, Mode=OneWay}" />
+            </md:DrawerHost>
+        </DockPanel>
+
+        <StackPanel Margin="0,10,0,0" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button
+                Command="{Binding Command, Mode=OneWay}"
+                CommandParameter="{Binding ElementName=ViewContainerWindow, Mode=OneWay}"
+                Content="{Binding Description, Mode=OneWay}" 
+                DataContext="{Binding CloseVmc, Mode=OneTime}" />
+        </StackPanel>
+    </Grid>
+</Window>

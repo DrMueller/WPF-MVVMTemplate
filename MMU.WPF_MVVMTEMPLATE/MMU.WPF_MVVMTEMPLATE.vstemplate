@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>MMU.WPF_MVVMTEMPLATE</Name>
+    <Description>WPF MVVM Template made by MMU</Description>
+    <Icon>M.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>12cdc65c-a739-4985-b05c-cd5c1a6107bd</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>MMU.WPF_MVVMTEMPLATE</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <Folder Name="AppStart" TargetFolderName="AppStart">
+        <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.xaml.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Bootstrapper.cs">Bootstrapper.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ViewModelMappingInitializer.cs">ViewModelMappingInitializer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ViewModelRegistering.cs">ViewModelRegistering.cs</ProjectItem>
+      </Folder>
+      
+      <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="FodyWeavers.xml">FodyWeavers.xml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="NLog.config">NLog.config</ProjectItem>
+      
+      <Folder Name="Commands" TargetFolderName="Commands">
+        <ProjectItem ReplaceParameters="true" TargetFileName="RelayCommand.cs">RelayCommand.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ParametredRelayCommand.cs">ParametredRelayCommand.cs</ProjectItem>
+      </Folder>
+
+      <Folder Name="Handlers" TargetFolderName="Handlers">
+        <Folder Name="AppearanceHandling" TargetFolderName="AppearanceHandling">
+          <ProjectItem ReplaceParameters="true" TargetFileName="IAppearanceHandler.cs">IAppearanceHandler.cs</ProjectItem>
+          <Folder Name="Implementation" TargetFolderName="Implementation">
+            <ProjectItem ReplaceParameters="true" TargetFileName="AppearanceHandler.cs">AppearanceHandler.cs</ProjectItem>
+           </Folder>
+        </Folder>
+        
+        <Folder Name="ExceptionHandling" TargetFolderName="ExceptionHandling">
+          <ProjectItem ReplaceParameters="true" TargetFileName="IExceptionHandler.cs">IExceptionHandler.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="IExceptionHandlerConfiguration.cs">IExceptionHandlerConfiguration.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="IExceptionLogger.cs">IExceptionLogger.cs</ProjectItem>
+          <Folder Name="Implementation" TargetFolderName="Implementation">
+            <ProjectItem ReplaceParameters="true" TargetFileName="ExceptionHandler.cs">ExceptionHandler.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="ExceptionHandlerConfiguration.cs">ExceptionHandlerConfiguration.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="ExceptionLogger.cs">ExceptionLogger.cs</ProjectItem>
+          </Folder>
+        </Folder>
+
+        <Folder Name="InformationHandling" TargetFolderName="InformationHandling">
+          <ProjectItem ReplaceParameters="true" TargetFileName="IInformationHandler.cs">IInformationHandler.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="IInformationHandlerConfiguration.cs">IInformationHandlerConfiguration.cs</ProjectItem>
+          <Folder Name="Implementation" TargetFolderName="Implementation">
+            <ProjectItem ReplaceParameters="true" TargetFileName="InformationHandler.cs">InformationHandler.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="InformationHandlerConfiguration.cs">InformationHandlerConfiguration.cs</ProjectItem>
+          </Folder>
+        </Folder>
+
+        <Folder Name="NavigationHandling" TargetFolderName="NavigationHandling">
+          <ProjectItem ReplaceParameters="true" TargetFileName="INavigationHandler.cs">INavigationHandler.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="INavigationHandlerConfiguration.cs">INavigationHandlerConfiguration.cs</ProjectItem>
+          <Folder Name="Implementation" TargetFolderName="Implementation">
+            <ProjectItem ReplaceParameters="true" TargetFileName="NavigationHandler.cs">NavigationHandler.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="NavigationHandlerConfiguration.cs">NavigationHandlerConfiguration.cs</ProjectItem>
+          </Folder>
+        </Folder>
+      </Folder>
+
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      
+      <Folder Name="ViewModels" TargetFolderName="ViewModels">
+        <Folder Name="Shell" TargetFolderName="Shell">
+          <Folder Name="MainNavigation" TargetFolderName="MainNavigation">
+            <ProjectItem ReplaceParameters="true" TargetFileName="IAmMainNavigationViewModel.cs">IAmMainNavigationViewModel.cs</ProjectItem>
+            <Folder Name="Initialization" TargetFolderName="Initialization">
+              <ProjectItem ReplaceParameters="true" TargetFileName="IMainNavigationInitializer.cs">IMainNavigationInitializer.cs</ProjectItem>
+              <Folder Name="Implementation" TargetFolderName="Implementation">
+                <ProjectItem ReplaceParameters="true" TargetFileName="MainNavigationInitializer.cs">MainNavigationInitializer.cs</ProjectItem>
+              </Folder>
+            </Folder>
+          </Folder>
+          
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewModelBase.cs">ViewModelBase.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewModelCommand.cs">ViewModelCommand.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewModelContainer.cs">ViewModelContainer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewModelFactory.cs">ViewModelFactory.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      
+      <Folder Name="Views" TargetFolderName="Views">
+        <Folder Name="Shell" TargetFolderName="Shell">
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewContainer.xaml">ViewContainer.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewContainer.xaml.cs">ViewContainer.xaml.cs</ProjectItem>
+        </Folder>
+      </Folder>
+
+      <Folder Name="Infrastructure" TargetFolderName="Infrastructure">
+        <Folder Name="Converters" TargetFolderName="Converters">
+          <ProjectItem ReplaceParameters="true" TargetFileName="AppearanceThemeDarkToBooleanConverter.cs">AppearanceThemeDarkToBooleanConverter.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="AppearanceThemeLightToBooleanConverter.cs">AppearanceThemeLightToBooleanConverter.cs</ProjectItem>
+        </Folder>
+        
+        <Folder Name="Dictionaries" TargetFolderName="Dictionaries">
+          <ProjectItem ReplaceParameters="false" TargetFileName="_Conventions.txt">_Conventions.txt</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Brushes.xaml">Brushes.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ControlTemplates.xaml">ControlTemplates.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Converters.xaml">Converters.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="CoreStyles.xaml">CoreStyles.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="DataTemplates.xaml">DataTemplates.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Fonts.xaml">Fonts.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Icons.xaml">Icons.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Styles.xaml">Styles.xaml</ProjectItem>
+        </Folder>
+
+        <Folder Name="Extensions" TargetFolderName="Extensions">
+          <Folder Name="DeepCopyHelper" TargetFolderName="DeepCopyHelper">
+            <ProjectItem ReplaceParameters="true" TargetFileName="DeepCopyArrayExtensions.cs">DeepCopyArrayExtensions.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="DeepCopyArrayTraverse.cs">DeepCopyArrayTraverse.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="DeepCopyHelper.cs">DeepCopyHelper.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="DeepCopyReferenceEqualityComparer.cs">DeepCopyReferenceEqualityComparer.cs</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="EnumerableExtensions.cs">EnumerableExtensions.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ObjectExtensions.cs">ObjectExtensions.cs</ProjectItem>
+        </Folder>
+
+        <Folder Name="Helpers" TargetFolderName="Helpers">
+          <ProjectItem ReplaceParameters="true" TargetFileName="RegistryHelper.cs">RegistryHelper.cs</ProjectItem>
+        </Folder>
+
+        <Folder Name="Singletons" TargetFolderName="Singletons">
+          <ProjectItem ReplaceParameters="true" TargetFileName="UnityContainerInstance.cs">UnityContainerInstance.cs</ProjectItem>
+        </Folder>
+        
+        <Folder Name="XamlFunctionalities" TargetFolderName="XamlFunctionalities">
+          <ProjectItem ReplaceParameters="true" TargetFileName="DynamicGridSizeBinding.cs">DynamicGridSizeBinding.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MouseMoveCommandBinding.cs">MouseMoveCommandBinding.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="EventCommandBinding.cs">EventCommandBinding.cs</ProjectItem>
+        </Folder>
+      </Folder>
+                 
+      <Folder Name="Models" TargetFolderName="Models">
+        <Folder Name="Shell" TargetFolderName="Shell">
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewModelParameter.cs">ViewModelParameter.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewModelParameterCollection.cs">ViewModelParameterCollection.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="IClosable.cs">IClosable.cs</ProjectItem>
+
+          <Folder Name="Enumerations" TargetFolderName="Enumerations">
+            <ProjectItem ReplaceParameters="true" TargetFileName="AppearanceTheme.cs">AppearanceTheme.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="InformationType.cs">InformationType.cs</ProjectItem>
+          </Folder>
+        </Folder>
+      </Folder>
+
+      <Folder Name="UserControls" TargetFolderName="UserControls">
+        <ProjectItem ReplaceParameters="true" TargetFileName="InformationBarControl.xaml.cs">InformationBarControl.xaml.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="InformationBarControl.xaml">InformationBarControl.xaml</ProjectItem>
+      </Folder>
+      
+      <Folder Name="Packages" TargetFolderName="Packages">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Fody.1.29.2.nupkg">Fody.1.29.2.nupkg</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="PropertyChanged.Fody.1.50.3.nupkg">PropertyChanged.Fody.1.50.3.nupkg</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Unity.4.0.1.nupkg">Unity.4.0.1.nupkg</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="CommonServiceLocator.1.3.nupkg">CommonServiceLocator.1.3.nupkg</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="NLog.4.4.0-beta3.nupkg">NLog.4.4.0-beta3.nupkg</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="MaterialDesignColors.1.1.2.nupkg">MaterialDesignColors.1.1.2.nupkg</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="MaterialDesignThemes.2.2.0.725.nupkg">MaterialDesignThemes.2.2.0.725.nupkg</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+
+  <WizardData>
+    <packages repository="template">
+      <package id="Fody" version="1.29.2" targetFramework="net452" developmentDependency="true" />
+      <package id="PropertyChanged.Fody" version="1.50.3" targetFramework="net452" developmentDependency="true" />
+      <package id="CommonServiceLocator" version="1.3" targetFramework="net452" />
+      <package id="Unity" version="4.0.1" targetFramework="net452" />
+      <package id="NLog" version="4.4.0-beta3" targetFramework="net461" />
+      <package id="MaterialDesignColors" version="1.1.2" targetFramework="net461" />
+      <package id="MaterialDesignThemes" version="2.2.0.725" targetFramework="net461" />
+    </packages>
+  </WizardData>
+</VSTemplate>
